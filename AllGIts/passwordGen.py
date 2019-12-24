@@ -1,4 +1,3 @@
-#YEET YAW YAW YAW YAW YEET YAW
 #!/usr/bin/env python 
 import random
 
@@ -35,9 +34,21 @@ def main():
  length = askuserLengthpswrd()
  numletters = askuserHowmanyletters()
  numnumbers = askuserHowmanynumbers()
+
+ password = " "
+ for x in range(1, length):
+  #Takes priority of the amount of letters and numbers person wants
+  if(numletters > 0 or numnumbers >0):
+   rnum2 = randomgenerator(1,2)
+   if(rnum2 == 1):
+    password = password + RandomLetters()
+   else:
+    password = password + str(RandomNumbers())
+
  print("Length: " + str(length) + " Letters: " +str( numletters) +
  " Numbers: " +str( numnumbers)) 
- 
+ print("Password: " + password)
+main()
 
 
 
