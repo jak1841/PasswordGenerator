@@ -1,12 +1,26 @@
 #!/usr/bin/env python 
 import random
 
-print("Hello world")
-
 #Random Function with upper and lower
 def randomgenerator(lowerbound,upperbound):
  rnum = random.randint(lowerbound,upperbound)
  return rnum
 
-for x in range (26):
- print(randomgenerator(1,26))
+#Ask User questionss
+def askuserLengthpswrd():
+ return input("Type Length of password: ")
+
+def askuserHowmanyletters():
+ return input("Type number of letters in password: ")
+
+def askuserHowmanynumbers():
+ return input("Type number of numbers in password: ")
+
+def main():
+ length = askuserLengthpswrd()
+ numletters = askuserHowmanyletters()
+ numnumbers = askuserHowmanynumbers()
+ print("Length: " + str(length) + " Letters: " +str( numletters) +
+ " Numbers: " +str( numnumbers)) 
+
+main()
