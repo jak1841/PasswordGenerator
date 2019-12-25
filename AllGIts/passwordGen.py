@@ -41,6 +41,24 @@ def main():
   if(numletters > 0 or numnumbers >0):
    rnum2 = randomgenerator(1,2)
    if(rnum2 == 1):
+    if(numletters >0):
+     password = password + RandomLetters()
+     numletters = numletters - 1
+    else:
+     password = password + str(RandomNumbers())
+     numnumbers = numnumbers -1 
+   else:
+    if(numnumbers >0):
+     password = password + str(RandomNumbers())
+     numnumbers = numnumbers -1
+    else:
+     password = password + RandomLetters()
+     numletters = numletters -1
+  #If the numbers of letters and numbers in priority are less then the length
+  #of the password 
+  else:
+   rnum2 = randomgenerator(1,2)
+   if(rnum2 ==1):
     password = password + RandomLetters()
    else:
     password = password + str(RandomNumbers())
@@ -48,6 +66,7 @@ def main():
  print("Length: " + str(length) + " Letters: " +str( numletters) +
  " Numbers: " +str( numnumbers)) 
  print("Password: " + password)
+
 main()
 
 
