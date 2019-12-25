@@ -1,5 +1,7 @@
 #!/usr/bin/env python 
 import random
+import os
+import time
 
 #Random Function with upper and lower
 def randomgenerator(lowerbound,upperbound):
@@ -30,10 +32,26 @@ def RandomNumbers():
  random = randomgenerator(1,9)
  return random
 
+#return boolean if password length less than number of letters and number
+def canpasswordGen(length,numletters,numnumbers):
+ if(length < numletters+numnumbers):
+  return False
+ else:
+  return True
+
 def main():
+ #Ask User again if the amount of letters and numbers are not less than 
+ #password length
  length = askuserLengthpswrd()
  numletters = askuserHowmanyletters()
  numnumbers = askuserHowmanynumbers()
+ while(canpasswordGen(length,numletters,numnumbers)==False):
+  print("Error amount of number and letter exceeded password length")
+  time.sleep(2)
+  os.system("clear")
+  length = askuserLengthpswrd()
+  numletters = askuserHowmanyletters()
+  numnumbers = askuserHowmanynumbers()
 
  password = " "
  for x in range(1, length):
@@ -62,9 +80,7 @@ def main():
     password = password + RandomLetters()
    else:
     password = password + str(RandomNumbers())
-
- print("Length: " + str(length) + " Letters: " +str( numletters) +
- " Numbers: " +str( numnumbers)) 
+ 
  print("Password: " + password)
 
 main()
